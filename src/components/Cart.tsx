@@ -16,24 +16,22 @@ interface CartProps {
   onClose: () => void;
   items: CartItem[];
   onRemove: (id: number) => void;
+  onIncrease: (id: number) => void;
+  onDecrease: (id: number) => void;
 }
 
-export const Cart = ({ isOpen, onClose, items, onRemove }: CartProps) => {
+export const Cart = ({ isOpen, onClose, items, onRemove, onIncrease, onDecrease }: CartProps) => {
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleCheckout = () => {
-    // Número de WhatsApp (formato: código do país + DDD + número sem espaços ou caracteres especiais)
-    const whatsappNumber = "5583996905158"; // Altere para o número real da loja
+    const whatsappNumber = "5583996905158"; 
     
-    // Formata a lista de produtos
     const productsList = items.map(item => 
-      `• ${item.name}\n  Quantidade: ${item.quantity}\n  Valor: R$ ${(item.price * item.quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+      `• ${item.name}\n  Quantidade: ${item.quantity}\n  Preço unitário: R$ ${item.price.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\n  Subtotal: R$ ${(item.price * item.quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
     ).join('\n\n');
     
-    // Cria a mensagem completa
     const message = `🛏️ *Pedido - SONHAR Colchões*\n\n${productsList}\n\n💰 *Total: R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}*\n\n📍 Por favor, informar o endereço de entrega:\n👤 Nome completo:\n📱 Telefone para contato:`;
     
-    // Abre o WhatsApp com a mensagem
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -59,11 +57,22 @@ export const Cart = ({ isOpen, onClose, items, onRemove }: CartProps) => {
                   />
                   <div className="flex-1">
                     <h4 className="font-medium">{item.name}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Quantidade: {item.quantity}
+                    
+                    {/* Controle de quantidade estilo contador */}
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="text-sm text-muted-foreground">Quantidade:</span>
+                      <div className="flex items-center border rounded">
+                        <Button variant="ghost" size="icon" onClick={() => onDecrease(item.id)}>-</Button>
+                        <span className="px-3">{item.quantity}</span>
+                        <Button variant="ghost" size="icon" onClick={() => onIncrease(item.id)}>+</Button>
+                      </div>
+                    </div>
+
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Preço unitário: R$ {item.price.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </p>
-                    <p className="font-bold text-primary">
-                      R$ {(item.price * item.quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    <p className="font-bold text-primary mt-1">
+                      Subtotal: R$ {(item.price * item.quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </p>
                   </div>
                   <Button

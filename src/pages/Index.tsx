@@ -62,6 +62,7 @@ const Index = () => {
     return filtered;
   }, [category, sortBy]);
 
+  // Adicionar ao carrinho
   const addToCart = (productId: number) => {
     const product = PRODUCTS.find(p => p.id === productId);
     if (!product) return;
@@ -84,8 +85,33 @@ const Index = () => {
     });
   };
 
+  // Remover item inteiro
   const removeFromCart = (productId: number) => {
     setCartItems(prev => prev.filter(item => item.id !== productId));
+  };
+
+  // Aumentar quantidade
+  const increaseQuantity = (productId: number) => {
+    setCartItems(prev =>
+      prev.map(item =>
+        item.id === productId
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  };
+
+  // Diminuir quantidade (remove se chegar a 0)
+  const decreaseQuantity = (productId: number) => {
+    setCartItems(prev =>
+      prev
+        .map(item =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter(item => item.quantity > 0)
+    );
   };
 
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -131,6 +157,8 @@ const Index = () => {
         onClose={() => setIsCartOpen(false)}
         items={cartItems}
         onRemove={removeFromCart}
+        onIncrease={increaseQuantity}   // novo
+        onDecrease={decreaseQuantity}   // novo
       />
     </div>
   );
