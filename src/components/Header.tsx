@@ -2,6 +2,7 @@ import { ShoppingCart, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState, useEffect } from "react";
+import logo from "@/assets/logo.png";
 
 interface HeaderProps {
   cartCount: number;
@@ -33,7 +34,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <h1 className="text-2xl font-bold">SONHAR</h1>
+          <img src={logo} alt="SONHAR Colchões" className="h-12 w-auto" />
         </div>
         <div className="flex items-center gap-2">
           {showInstall && (
