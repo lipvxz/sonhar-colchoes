@@ -23,7 +23,7 @@ export const Cart = ({ isOpen, onClose, items, onRemove }: CartProps) => {
 
   const handleCheckout = () => {
     // Número de WhatsApp (formato: código do país + DDD + número sem espaços ou caracteres especiais)
-    const whatsappNumber = "5511999999999"; // Altere para o número real da loja
+    const whatsappNumber = "5583996905158"; // Altere para o número real da loja
     
     // Formata a lista de produtos
     const productsList = items.map(item => 
