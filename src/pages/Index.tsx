@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Header } from "@/components/Header";
 import { ProductCard } from "@/components/ProductCard";
+import { ProductFilters } from "@/components/ProductFilters";
 import { Cart } from "@/components/Cart";
 import { useToast } from "@/hooks/use-toast";
 
@@ -12,19 +13,54 @@ interface CartItem {
   image: string;
 }
 
-const PRODUCTS = [
-  { id: 1, name: "Colchão Queen Size Premium", price: 2499.90, image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500&h=500&fit=crop" },
-  { id: 2, name: "Colchão Casal Ortopédico", price: 1899.90, image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&h=500&fit=crop" },
-  { id: 3, name: "Colchão King Size Luxo", price: 3299.90, image: "https://images.unsplash.com/photo-1631049421450-348ccd7f8949?w=500&h=500&fit=crop" },
-  { id: 4, name: "Apartamento 2 Quartos Centro", price: 350000, image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&h=500&fit=crop" },
-  { id: 5, name: "Casa 3 Quartos com Quintal", price: 480000, image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=500&h=500&fit=crop" },
-  { id: 6, name: "Studio Moderno Mobiliado", price: 220000, image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&h=500&fit=crop" },
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  category: "colchoes" | "moveis";
+  popularity: number;
+}
+
+const PRODUCTS: Product[] = [
+  { id: 1, name: "Colchão Queen Size Premium", price: 2499.90, image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500&h=500&fit=crop", category: "colchoes", popularity: 95 },
+  { id: 2, name: "Colchão Casal Ortopédico", price: 1899.90, image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&h=500&fit=crop", category: "colchoes", popularity: 88 },
+  { id: 3, name: "Colchão King Size Luxo", price: 3299.90, image: "https://images.unsplash.com/photo-1631049421450-348ccd7f8949?w=500&h=500&fit=crop", category: "colchoes", popularity: 92 },
+  { id: 4, name: "Sofá 3 Lugares Confort", price: 2899.90, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop", category: "moveis", popularity: 85 },
+  { id: 5, name: "Mesa de Jantar 6 Lugares", price: 1599.90, image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=500&h=500&fit=crop", category: "moveis", popularity: 78 },
+  { id: 6, name: "Guarda-Roupa Casal", price: 1999.90, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=500&h=500&fit=crop", category: "moveis", popularity: 82 },
 ];
 
 const Index = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [category, setCategory] = useState<string>("todos");
+  const [sortBy, setSortBy] = useState<string>("popular");
   const { toast } = useToast();
+
+  const filteredProducts = useMemo(() => {
+    let filtered = [...PRODUCTS];
+
+    // Filtrar por categoria
+    if (category !== "todos") {
+      filtered = filtered.filter(p => p.category === category);
+    }
+
+    // Ordenar
+    switch (sortBy) {
+      case "price-asc":
+        filtered.sort((a, b) => a.price - b.price);
+        break;
+      case "price-desc":
+        filtered.sort((a, b) => b.price - a.price);
+        break;
+      case "popular":
+        filtered.sort((a, b) => b.popularity - a.popularity);
+        break;
+    }
+
+    return filtered;
+  }, [category, sortBy]);
 
   const addToCart = (productId: number) => {
     const product = PRODUCTS.find(p => p.id === productId);
@@ -65,14 +101,21 @@ const Index = () => {
               SEU LAR IDEAL
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Colchões confortáveis e imóveis dos sonhos
+              Colchões confortáveis e móveis para seu lar
             </p>
           </div>
         </section>
 
         <section className="container py-12">
+          <ProductFilters
+            category={category}
+            sortBy={sortBy}
+            onCategoryChange={setCategory}
+            onSortChange={setSortBy}
+          />
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PRODUCTS.map(product => (
+            {filteredProducts.map(product => (
               <ProductCard
                 key={product.id}
                 {...product}
