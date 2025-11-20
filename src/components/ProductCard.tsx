@@ -25,7 +25,7 @@ export const ProductCard = ({ id, name, price, image, onAddToCart }: ProductCard
       <CardFooter className="flex flex-col items-start gap-3 p-4">
         <div className="w-full">
           <h3 className="font-semibold text-lg">{name}</h3>
-          <p className="text-2xl font-bold text-primary">R$ {price.toFixed(2)}</p>
+          <p className="text-2xl font-bold text-primary">R$ {price.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
         <Button 
           onClick={() => onAddToCart(id)} 

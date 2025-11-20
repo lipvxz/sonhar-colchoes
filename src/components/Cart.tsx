@@ -46,7 +46,7 @@ export const Cart = ({ isOpen, onClose, items, onRemove }: CartProps) => {
                       Quantidade: {item.quantity}
                     </p>
                     <p className="font-bold text-primary">
-                      R$ {(item.price * item.quantity).toFixed(2)}
+                      R$ {(item.price * item.quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </p>
                   </div>
                   <Button
@@ -68,7 +68,7 @@ export const Cart = ({ isOpen, onClose, items, onRemove }: CartProps) => {
             <SheetFooter className="flex-col gap-4">
               <div className="flex justify-between items-center text-lg font-bold">
                 <span>Total:</span>
-                <span className="text-primary">R$ {total.toFixed(2)}</span>
+                <span className="text-primary">R$ {total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
               </div>
               <Button className="w-full" size="lg">
                 Finalizar Compra
