@@ -21,6 +21,23 @@ interface CartProps {
 export const Cart = ({ isOpen, onClose, items, onRemove }: CartProps) => {
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
+  const handleCheckout = () => {
+    // Número de WhatsApp (formato: código do país + DDD + número sem espaços ou caracteres especiais)
+    const whatsappNumber = "5511999999999"; // Altere para o número real da loja
+    
+    // Formata a lista de produtos
+    const productsList = items.map(item => 
+      `• ${item.name}\n  Quantidade: ${item.quantity}\n  Valor: R$ ${(item.price * item.quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+    ).join('\n\n');
+    
+    // Cria a mensagem completa
+    const message = `🛏️ *Pedido - SONHAR Colchões*\n\n${productsList}\n\n💰 *Total: R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}*\n\n📍 Por favor, informar o endereço de entrega:\n👤 Nome completo:\n📱 Telefone para contato:`;
+    
+    // Abre o WhatsApp com a mensagem
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent className="flex flex-col">
@@ -70,7 +87,7 @@ export const Cart = ({ isOpen, onClose, items, onRemove }: CartProps) => {
                 <span>Total:</span>
                 <span className="text-primary">R$ {total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
               </div>
-              <Button className="w-full" size="lg">
+              <Button className="w-full" size="lg" onClick={handleCheckout}>
                 Finalizar Compra
               </Button>
             </SheetFooter>
