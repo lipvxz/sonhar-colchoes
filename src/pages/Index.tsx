@@ -13,12 +13,12 @@ interface CartItem {
 }
 
 const PRODUCTS = [
-  { id: 1, name: "Camiseta Oversized Preta", price: 89.90, image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop" },
-  { id: 2, name: "Camiseta Básica Branca", price: 79.90, image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500&h=500&fit=crop" },
-  { id: 3, name: "Camiseta Estampada", price: 99.90, image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&h=500&fit=crop" },
-  { id: 4, name: "Camiseta Vintage", price: 94.90, image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=500&h=500&fit=crop" },
-  { id: 5, name: "Camiseta Listrada", price: 84.90, image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=500&h=500&fit=crop" },
-  { id: 6, name: "Camiseta Premium", price: 109.90, image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500&h=500&fit=crop" },
+  { id: 1, name: "Colchão Queen Size Premium", price: 2499.90, image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500&h=500&fit=crop" },
+  { id: 2, name: "Colchão Casal Ortopédico", price: 1899.90, image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&h=500&fit=crop" },
+  { id: 3, name: "Colchão King Size Luxo", price: 3299.90, image: "https://images.unsplash.com/photo-1631049421450-348ccd7f8949?w=500&h=500&fit=crop" },
+  { id: 4, name: "Apartamento 2 Quartos Centro", price: 350000, image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&h=500&fit=crop" },
+  { id: 5, name: "Casa 3 Quartos com Quintal", price: 480000, image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=500&h=500&fit=crop" },
+  { id: 6, name: "Studio Moderno Mobiliado", price: 220000, image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&h=500&fit=crop" },
 ];
 
 const Index = () => {
@@ -62,10 +62,10 @@ const Index = () => {
         <section className="relative h-[60vh] flex items-center justify-center bg-gradient-to-b from-muted to-background">
           <div className="container text-center space-y-6">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              NOVA COLEÇÃO
+              SEU LAR IDEAL
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Estilo único para quem não segue padrões
+              Colchões confortáveis e imóveis dos sonhos
             </p>
           </div>
         </section>
