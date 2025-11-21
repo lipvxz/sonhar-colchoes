@@ -23,14 +23,14 @@ interface Product {
 }
 
 const PRODUCTS: Product[] = [
-  { id: 1, name: "Colchão Queen Size Premium", price: 2499.90, image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500&h=500&fit=crop", category: "colchoes", popularity: 95 },
-  { id: 2, name: "Colchão Casal Ortopédico", price: 1899.90, image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&h=500&fit=crop", category: "colchoes", popularity: 88 },
-  { id: 3, name: "Colchão King Size Luxo", price: 3299.90, image: "https://images.unsplash.com/photo-1631049421450-348ccd7f8949?w=500&h=500&fit=crop", category: "colchoes", popularity: 92 },
-  { id: 4, name: "Sofá 3 Lugares Confort", price: 2899.90, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop", category: "moveis", popularity: 85 },
-  { id: 5, name: "Mesa de Jantar 6 Lugares", price: 1599.90, image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=500&h=500&fit=crop", category: "moveis", popularity: 78 },
-  { id: 6, name: "Guarda-Roupa Casal", price: 1999.90, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=500&h=500&fit=crop", category: "moveis", popularity: 82 },
-  { id: 7, name: "Colchão Solteiro Espuma D33", price: 899.90, image: "https://images.unsplash.com/photo-1582582494701-5f5d3f4f4e8b?w=500&h=500&fit=crop", category: "colchoes", popularity: 80 },
-  { id: 8, name: "Cama Box Casal", price: 1299.90, image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&h=500&fit=crop", category: "colchoes", popularity: 87 },
+  { id: 1, name: "Colchão Queen Size Premium", price: 249.90, image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500&h=500&fit=crop", category: "colchoes", popularity: 95 },
+  { id: 2, name: "Colchão Casal Ortopédico", price: 189.90, image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&h=500&fit=crop", category: "colchoes", popularity: 88 },
+  { id: 3, name: "Colchão King Size Luxo", price: 329.90, image: "https://images.unsplash.com/photo-1631049421450-348ccd7f8949?w=500&h=500&fit=crop", category: "colchoes", popularity: 92 },
+  { id: 4, name: "Sofá 3 Lugares Confort", price: 289.90, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop", category: "moveis", popularity: 85 },
+  { id: 5, name: "Mesa de Jantar 6 Lugares", price: 159.90, image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=500&h=500&fit=crop", category: "moveis", popularity: 78 },
+  { id: 6, name: "Guarda-Roupa Casal", price: 199.90, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=500&h=500&fit=crop", category: "moveis", popularity: 82 },
+  { id: 7, name: "Colchão Solteiro Espuma D33", price: 899.90, image: " https://plus.unsplash.com/premium_photo-1701157947036-4497cf679494?q=80&w=844&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", category: "colchoes", popularity: 80 },
+  { id: 8, name: "Cama Box Casal", price: 129.90, image: "https://images.unsplash.com/photo-1744187170989-0da1811af435?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", category: "colchoes", popularity: 87 },
   { id: 9, name: "Estante para Livros", price: 749.90, image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=500&h=500&fit=crop", category: "moveis", popularity: 75 },
 ];
 
