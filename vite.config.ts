@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => ({
         theme_color: "#ef4444",
         background_color: "#ffffff",
         display: "standalone",
-        start_url: "/",
+        start_url: "/sonhar-colchoes/",
         icons: [
           {
             src: "icon-192.png",
