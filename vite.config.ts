@@ -6,6 +6,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+   base: "/sonhar-colchoes/", 
   server: {
     host: "::",
     port: 8080,
@@ -17,9 +18,9 @@ export default defineConfig(({ mode }) => ({
       registerType: "autoUpdate",
       includeAssets: ["favicon.ico", "robots.txt", "icon-192.png", "icon-512.png"],
       manifest: {
-        name: "STREETWEAR - Loja de Camisas",
-        short_name: "STREETWEAR",
-        description: "Estilo único para quem não segue padrões",
+        name: "SONHAR - Loja de Colchões",
+        short_name: "SONHAR",
+        description: "Colchões confortáveis e móveis para seu lar",
         theme_color: "#ef4444",
         background_color: "#ffffff",
         display: "standalone",
