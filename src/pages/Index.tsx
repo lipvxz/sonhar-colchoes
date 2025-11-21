@@ -29,6 +29,9 @@ const PRODUCTS: Product[] = [
   { id: 4, name: "Sofá 3 Lugares Confort", price: 2899.90, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop", category: "moveis", popularity: 85 },
   { id: 5, name: "Mesa de Jantar 6 Lugares", price: 1599.90, image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=500&h=500&fit=crop", category: "moveis", popularity: 78 },
   { id: 6, name: "Guarda-Roupa Casal", price: 1999.90, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=500&h=500&fit=crop", category: "moveis", popularity: 82 },
+  { id: 7, name: "Colchão Solteiro Espuma D33", price: 899.90, image: "https://images.unsplash.com/photo-1582582494701-5f5d3f4f4e8b?w=500&h=500&fit=crop", category: "colchoes", popularity: 80 },
+  { id: 8, name: "Cama Box Casal", price: 1299.90, image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&h=500&fit=crop", category: "colchoes", popularity: 87 },
+  { id: 9, name: "Estante para Livros", price: 749.90, image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=500&h=500&fit=crop", category: "moveis", popularity: 75 },
 ];
 
 const Index = () => {
