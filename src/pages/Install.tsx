@@ -45,7 +45,7 @@ const Install = () => {
       setIsInstalled(true);
       toast({
         title: "App instalado!",
-        description: "Você pode acessar o STREETWEAR direto da sua tela inicial.",
+        description: "Você pode acessar o SONHAR direto da sua tela inicial.",
       });
     }
 
@@ -60,7 +60,7 @@ const Install = () => {
             <Smartphone className="w-10 h-10 text-primary-foreground" />
           </div>
           <CardTitle className="text-3xl font-bold">
-            {isInstalled ? "App Instalado!" : "Instalar STREETWEAR"}
+            {isInstalled ? "App Instalado!" : "Instalar SONHAR"}
           </CardTitle>
           <CardDescription className="text-base">
             {isInstalled
